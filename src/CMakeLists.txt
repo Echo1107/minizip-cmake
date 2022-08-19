@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.16)
 # project name
 project(minizip-lib C CXX)
 
+find_package(ZLIB REQUIRED)
 
 # detect operating system
 message(STATUS "We are on a ${CMAKE_SYSTEM_NAME} system")
@@ -34,5 +35,5 @@ target_include_directories(minizip
 )
 
 target_link_libraries(minizip
-    PUBLIC zlibstatic
+    PUBLIC ZLIB::ZLIB
 )

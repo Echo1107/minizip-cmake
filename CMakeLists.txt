@@ -1,5 +1,12 @@
 cmake_minimum_required(VERSION 3.16)
 
+
+# VCPKG
+IF(DEFINED ENV{VCPKG_ROOT} AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
+	SET(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "CMAKE_TOOLCHAIN_FILE")
+ENDIF()
+message(STATUS "Using vcpkg for ${CMAKE_TOOLCHAIN_FILE}: ${VCPKG_TARGET_TRIPLET}")
+
 # project name
 project(minizip C CXX)
 
@@ -61,7 +68,7 @@ endif()
 # # enable c++11
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-include(external/InitializeExternalComponents.cmake)
+# include(external/InitializeExternalComponents.cmake)
 
 add_subdirectory(src)
 add_subdirectory(test)
