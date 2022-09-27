@@ -65,10 +65,4 @@ else()
     endif()
 endif()
 
-# # enable c++11
-# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-
-# include(external/InitializeExternalComponents.cmake)
-
 add_subdirectory(src)
-add_subdirectory(test)

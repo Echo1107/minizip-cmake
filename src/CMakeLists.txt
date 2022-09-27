@@ -29,7 +29,8 @@ endif()
 add_library(minizip STATIC ${src})
 
 target_include_directories(minizip
-    PUBLIC "${CMAKE_CURRENT_LIST_DIR}/include/"
+    INTERFACE "${CMAKE_CURRENT_LIST_DIR}/include/"
+    PRIVATE "${CMAKE_CURRENT_LIST_DIR}/include/minizip/"
     PUBLIC "${zlib_SOURCE_DIR}"
     PUBLIC "${zlib_BINARY_DIR}"
 )
